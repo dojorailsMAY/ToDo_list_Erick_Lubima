@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   get 'tasks/new'=>'tasks#new'
 
-  post 'tasks/create'=>'tasks#create'
+  post 'tasks/create'=>'tasks#create'  # should be POST /tasks
 
-  get 'tasks/:id'=>'tasks#update' 
+  get 'tasks/:id'=>'tasks#update'  # should be PATCH or PUT
 
  
   get 'users/new' => 'users#new'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'users/logout'=>'users#logout'
 
-  post 'users/register'=>'users#create'
+  post 'users/register'=>'users#create'  # should be POST /users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

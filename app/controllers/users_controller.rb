@@ -16,13 +16,15 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
+    # session[:user_id] = nil
+    reset_session  # because you forgot to remove :username !!!
     redirect_to '/users/new'
   end
 
   def create
     @user=User.create(username:params[:username],password:params[:password])
     flash[:errors] = ["Please, login now!"]
+    # If using validations ... check that `@user.valid?` and `@user.errors`
     redirect_to '/users/new'
   end
 end

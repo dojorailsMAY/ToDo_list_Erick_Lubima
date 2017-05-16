@@ -1,26 +1,5 @@
 <style>
-    *
-    {
-        margin-left: 100px;
-        font-family: monospace;
-    }
-    table, td, th {    
-        border: 1px solid #ddd;
-        text-align: left;
-        
-    }
-    thead{
-        font-weight: bold;
-    }
-
-    table {
-        border-collapse: collapse;
-        width: 700px;
-    }
-
-    th, td {
-        padding: 10px;
-    }
+    <%# move to application.css OR tasks.scss %>
 </style>
 <h1><%= session[:username] %> ToDo list</h1>
 <a href='/users/logout'>Logout</a><br><br>
@@ -34,12 +13,18 @@
         </tr>
    </thead>
    <tbody> 
-        <tr> 
-            <% @tasks.each do |task| %>
-            <td> <a href="/tasks/<%=task.id%>"><%=task.status%></a></td>
-            <td><%=task.task%></td>
-            <td><%=task.due_date%></td>
-        </tr>
+        <% @tasks.each do |task| %>
+            <tr> 
+                <td> <a href="/tasks/<%=task.id%>"><%=task.status%></a></td>
+                <td><%=task.task%></td>
+                <td><%=task.due_date%></td>
+            </tr>
         <% end %>
    </tbody>      
 </table>
+
+<a href="/whatever" data-method="PUT">Restful Route Capable Link</a>
+<form action="/whatever" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    Restful Route Capable Form
+</form>
