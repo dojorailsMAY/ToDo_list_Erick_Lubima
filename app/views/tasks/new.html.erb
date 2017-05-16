@@ -1,0 +1,18 @@
+<style>
+    *
+    {
+        margin-left: 100px;
+        font-family: monospace;
+    }
+</style>
+<h1>Add a New Task:</h1>
+<form action="/tasks/create" method = "post"> 
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    New Task:<br>
+    <input type="text" name="task"><br>
+    Due Date:<br>
+    <input type="date" name="due_date"><br><br>
+    <input type="submit" value="Add">
+ </form>
+
+

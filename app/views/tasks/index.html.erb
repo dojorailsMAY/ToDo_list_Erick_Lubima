@@ -1,0 +1,45 @@
+<style>
+    *
+    {
+        margin-left: 100px;
+        font-family: monospace;
+    }
+    table, td, th {    
+        border: 1px solid #ddd;
+        text-align: left;
+        
+    }
+    thead{
+        font-weight: bold;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 700px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+</style>
+<h1><%= session[:username] %> ToDo list</h1>
+<a href='/users/logout'>Logout</a><br><br>
+<a href="/tasks/new">Add a New Task!</a><br><br>
+<table>
+    <thead>
+        <tr>
+            <td>Done?</td>
+            <td>Task</td>
+            <td>Due Date</td>
+        </tr>
+   </thead>
+   <tbody> 
+        <tr> 
+            <% @tasks.each do |task| %>
+            <td> <a href="/tasks/<%=task.id%>"><%=task.status%></a></td>
+            <td><%=task.task%></td>
+            <td><%=task.due_date%></td>
+        </tr>
+        <% end %>
+   </tbody>      
+</table>

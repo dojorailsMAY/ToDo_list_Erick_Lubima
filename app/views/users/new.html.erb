@@ -1,0 +1,39 @@
+<style>
+    *
+    {
+        margin-left: 100px;
+        font-family: monospace;
+    }
+    p{
+        color:red;
+    }
+</style>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p><%= e %></p>
+  <% end %>
+<% end %>
+
+<h1>Login</h1>
+<form action ='/users/login' method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    Name: <br>
+    <input type="text" name="username"><br>
+    Password:<br>
+    <input type="password" name="password"><br><br>
+    <input type="submit" value= "Login"><br><br>
+</form>
+
+<h1>Register</h1>
+<form action ='/users/register' method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    Enter username: <br>
+    <input type="text" name="username"><br>
+    Password:<br>
+    <input type="password" name="password"><br>
+    Confirm Password:<br>
+    <input type="password" name="confirm_password"><br><br>
+    <input type="submit" value= "Register"><br><br>
+</form>
+
